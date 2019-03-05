@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+
+<title>Login Page</title>
+</head>
+<style>
+body  {
+color: white;
+  background-image: url("login.jpg");
+  background-color: #cccccc;
+  	background-size: cover;
+   	background-repeat: no-repeat;
+	\\ background-attachment: fixed;
+}
+.form {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+a {
+	color: red !important;
+}
+
+a:active{
+	color: red !important;
+}
+
+.help {
+	margin-left: 26px;
+}
+
+.loginBtn {
+	padding: 3px 90px;
+}
+
+.bottom {
+	position: absolute;
+	bottom: 100px;
+	left: 40%;
+}
+
+
+</style>
+<body>
+	<form class="form" method="post" action="LoginController">
+		<table>
+			<tbody>
+			
+				
+					
+			
+				<h3> Sign In</h3>
+				<tr>
+					<td>Email</td>
+					<td><input type="email" placeholder="Enter email" name="email"required></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password"   placeholder="Enter password" name="password"required></td>
+				</tr>
+				
+				
+					
+					 
+			
+			</tbody>
+			</table>
+			<button class='loginBtn' type="submit">Login</button><br>
+			<tr>
+    <td>   <input type="checkbox" checked="checked" name="remember"> Remember me</td> 
+    <td><a href="Help.html" class='help'>Need help?</a></td></tr>
+			
+	</form>
+	<br>
+	<div class='bottom'>
+	New To Netflix? <a href="Register.html">Sign up now.</a>
+	</div>
+	
+</body>
+</html>

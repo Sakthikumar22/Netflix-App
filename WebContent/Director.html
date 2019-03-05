@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+body {
+color:white;
+	background-image: url("login.jpg");
+	background-color: #ccvvv;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+</style>
+</head>
+<body>
+<form method="post" action="SaveDirectorServlet">
+<table>
+<tbody>
+<tr><td>
+Movie Details</td></tr>
+
+<tr><td>Director id</td>
+<td><input type="number" name="directorid"required></td></tr>
+<tr><td>Director name</td>
+<td><input type="text"name="directorname"required></td></tr>
+<tr><td>Director dateofbirth</td>
+<td><input type="date"name="dateofbirth"required></td></tr>
+<tr><td><button type="submit">add</button></td></tr>
+</tbody>
+</table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+<style>
+body {
+color:white;
+	background-image: url("login.jpg");
+	background-color: #ccvvv;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+</style>
+</head>
+<body>
+	<form method="post" action="RegisterController">
+		<table align="center">
+
+			<tr>
+				<td>username</td><td><input type="text" name="username" required></td>
+			</tr>
+			<tr>
+				<td>email</td><td><input type="email" name="email" required></td>
+			</tr>
+			<tr>
+				<td>password</td><td><input type="password" name="password" required></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="gender" value="male" checked>
+					Male <input type="radio" name="gender" value="female" checked>
+					Female <input type="radio" name="gender" value="other" checked>
+					Other</td>
+			</tr>
+			<tr>
+				<td><button type="submit">Register</button></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
