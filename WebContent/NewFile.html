@@ -7,35 +7,52 @@
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 body {
-	color: blue;
 	background-image: url("login.jpg");
 	background-color: #cccccc;
 	background-size: cover;
 	background-repeat: no-repeat;
 	\\ background-attachment: fixed;
 }
-a
-{
-color : white;
+.heading {
+	color: white;
+	font-size: 45px;
+	font-weight: 100;
+	position: absolute;
+	top: 38%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.link {
+	border: 2px solid white;
+	padding: 6.6px 20px;
+	color : white;
+	text-decoration: none;
+	position: absolute;
+	top: 52%;
+	transform: translate(-50%,-50%);
+	transition: all 0.3s ease-in;
+	outline: none;
+}
+
+.link:hover {
+	background: black;
+	border: 2px solid black;
+}
+
+a:nth-child(1) {
+	left: 46%;
+}
+
+a:nth-child(2) {
+	left: 54%;
 }
 
 </style>
 <body>
+	<h1 class='heading'>Welcome To NETFLIX</h1>
 	<form>
-
-		<table>
-			<tbody>
-				<tr>
-					<td><h1>Welcome To NETFLIX...</h1></td></tr>
-
-					<tr><td><a href="Login.html">Admin </a></td></tr>
-					
-					<tr><td><a href="Login.html">User</a></td>
-				</tr>
-
-			</tbody>
-		</table>
-
+		<a class='link' href="Login.html">Admin </a>
+		<a class='link' href="Login.html">User</a>
 	</form>
 </body>
 </html>
