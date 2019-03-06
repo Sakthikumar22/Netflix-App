@@ -18,7 +18,9 @@ public class ConnectionUtil {
 		connection = DriverManager.getConnection(url, "hr", "hr");
 	} catch (SQLException | ClassNotFoundException e) {
 		// TODO Auto-generated catch block
+		
 		e.printStackTrace();
+		throw new RuntimeException("Unable to get the connection");
 	}
 	return connection;
 	}
@@ -40,6 +42,7 @@ public class ConnectionUtil {
 			                if(conn != null){
 			                    conn.close();}
 			                }catch(SQLException e){
+			                	e.printStackTrace();
 			        
 			        }
 			    

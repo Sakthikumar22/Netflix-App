@@ -22,9 +22,9 @@ color:white;
 <body>
 	<table>
 		<tr>
-			<td>id</td>
-			<td>name</td>
-			<td>price</td>
+			<td>Id</td>
+			<td>Name</td>
+			<td>Price</td>
 		</tr>
 		<c:forEach var="movie" items="${MOVIES }">
 			<tr>

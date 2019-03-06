@@ -49,10 +49,10 @@ public class RegisterController extends HttpServlet {
 		String gender = request.getParameter("gender");
 		PrintWriter out = response.getWriter();
 		RegisterClass registerClass=new RegisterClass();
-		registerClass.username=username;
-		registerClass.email=email;
-		registerClass.password=password;
-		registerClass.gender=gender;
+		registerClass.setUsername(username);
+		registerClass.setEmail(email);
+		registerClass.setPassword(password);
+		registerClass.setGender(gender);
 		try {
 			MovieDAO.userinsert(registerClass);
 			RequestDispatcher rd = request.getRequestDispatcher("Login.html");

@@ -1,7 +1,7 @@
 package com.chainsys.model;
 
 public class RegisterClass {
-	public String email;
+	private String email;
 	public String getEmail() {
 		return email;
 	}
@@ -32,9 +32,9 @@ public class RegisterClass {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String username;
-	public String password;
-	public String gender;
-	public int id;
+	private String username;
+	private String password;
+	private String gender;
+	private int id;
 
 }

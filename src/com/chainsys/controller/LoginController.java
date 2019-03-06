@@ -57,8 +57,8 @@ public class LoginController extends HttpServlet {
 		{
 			try {
 				RegisterClass registerClass=MovieDAO.search(email,password);
-				out.print(registerClass.id);
-				if(registerClass.id>0){
+				out.print(registerClass.getId());
+				if(registerClass.getId()>0){
 					RequestDispatcher rd = request.getRequestDispatcher("Search.html");
 					rd.forward(request, response);
 				}else{

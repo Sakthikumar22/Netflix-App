@@ -8,12 +8,21 @@ body  {
 color:white;
   background-image: url("login.jpg");
   background-color: #cccccc;
+  background-size: cover;
+ background-repeat: no-repeat;
+}
+.heading {
+	color: gray;
+	font-size: 30px;
+	font-weight: 100;
+	
+	
 }
 </style>
 </head>
 <body>
 <form method="post" action="DeleteServlet">
-Movie Details<br>
+<h1 class='heading'>Delete Movie</h1>
 Id
 <input type="number"name="id">
 <button type="submit">Delete</button>

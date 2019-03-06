@@ -20,15 +20,19 @@ color:white;
 </head>
 <body><table>
 		<tr>
-			<td>id </td>
-			<td> name</td>
-			<td>price</td>
+			<td>Id </td>
+			<td> Name</td>
+			<td>Price</td>
+			<td>Director Name</td>
+				<td>Director DateOfBirth</td>
 		</tr>
 		<c:forEach var="movie" items="${MOVIES }">
 			<tr>
 				<td>${movie.id }</td>
 				<td>${movie.name }</td>
 				<td>${movie.price }</td>
+				<td>${movie.director.name }</td>
+				<td>${movie.director.dateOfBirth}</td>
 			</tr>
 		</c:forEach>
 	</table>

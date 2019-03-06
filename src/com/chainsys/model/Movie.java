@@ -20,9 +20,16 @@ public class Movie {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int id;
-	public String name;
-	public int price;
+	private int id;
+	private String name;
+	private int price;
+	private Director director;
+	public Director getDirector() {
+		return director;
+	}
+	public void setDirector(Director director) {
+		this.director = director;
+	} 
 	
 	
 	

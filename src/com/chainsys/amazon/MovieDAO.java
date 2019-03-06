@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
-
 import com.chainsys.connection.ConnectionUtil;
 import com.chainsys.model.Director;
 import com.chainsys.model.Movie;
@@ -20,7 +19,8 @@ public class MovieDAO {
 	
 		
 
-		public static void addMovie(int id , String name , int price,int director_id) throws SQLException, ClassNotFoundException {
+		public static void addMovie(int id , String name , int price,int director_id)
+				throws SQLException, ClassNotFoundException {
 			Connection connection = ConnectionUtil.getconnection();
 			String sql = "insert into movie(id,name,price,director_id) values(?,?,?,?) ";
 			PreparedStatement preparedStatement = connection .prepareStatement(sql);
@@ -42,8 +42,10 @@ public class MovieDAO {
 			ArrayList<Director> arrayList=new ArrayList<Director>();
 			while(rset.next()){
 				Director director=new Director();
-				director.id=rset.getInt("id");
-				director.name=rset.getString("name");
+				director.setId(rset.getInt("id"));
+				//director.id=rset.getInt("id");
+				director.setName(rset.getString("name"));
+				//director.name=rset.getString("name");
 				
 				arrayList.add(director);
 				
@@ -92,12 +94,14 @@ public class MovieDAO {
 			preparedStatement.setString(1,name);
 			ResultSet rset = preparedStatement.executeQuery();
 			ArrayList<Movie> arrayList=new ArrayList<Movie>();
-			
+			Movie movie=new Movie();
 			while(rset.next()){
-				Movie movie=new Movie();
-				movie.id=rset.getInt("id");
-				movie.name=rset.getString("name");
-				movie.price=rset.getInt("price");
+			//	Movie movie=new Movie();
+				movie.setId(rset.getInt("id"));
+			//	movie.name=rset.getString("name");
+				movie.setName(rset.getString("name"));
+				movie.setPrice(rset.getInt("price"));
+			//	movie.price=rset.getInt("price");
 				arrayList.add(movie);
 				
 			}
@@ -108,17 +112,31 @@ public class MovieDAO {
 		
 		public static ArrayList<Movie> listMovie() throws SQLException{
 			Connection connection = ConnectionUtil.getconnection();
-			String sql = "select * from movie";
+			String sql = "SELECT MOVIE.ID as movieid,movie.name as moviename,PRICE,DIRECTOR.NAME as directorname,DIRECTOR.DateofBirth as directordob FROM MOVIE,DIRECTOR WHERE  DIRECTOR_ID= DIRECTOR.ID order by movieid asc";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
 			ResultSet rset = preparedStatement.executeQuery();
 			
 			ArrayList<Movie> arrayList=new ArrayList<Movie>();
+			
+			
+			
 			while(rset.next()){
-				Movie movie=new Movie();
-				movie.id=rset.getInt("id");
-				movie.name=rset.getString("name");
-				movie.price=rset.getInt("price");
+				Movie movie=new Movie();				
+			//	movie.id=rset.getInt("movieid");
+				movie.setId(rset.getInt("movieid"));
+				
+			//	movie.name=rset.getString("moviename");
+				movie.setName(rset.getString("moviename"));
+				
+				
+			//	movie.price=rset.getInt("price");
+				movie.setPrice(rset.getInt("price"));
+				Director director=new Director();
+				director.setName(rset.getString("directorname"));
+				director.setDateOfBirth(rset.getDate("directordob").toLocalDate());
+				System.out.println(rset.getDate("directordob"));
+				movie.setDirector(director);
 				arrayList.add(movie);
 				
 			}
@@ -130,10 +148,10 @@ public class MovieDAO {
 			Connection connection = ConnectionUtil.getconnection();
 			String sql = "insert into register(username,email,password,gender,id) values(?,?,?,?,user_id_seq.nextval)";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			preparedStatement.setString(1,registerClass.username);
-			preparedStatement.setString(2,registerClass.email);
-			preparedStatement.setString(3,registerClass.password);
-			preparedStatement.setString(4,registerClass.gender);
+			preparedStatement.setString(1,registerClass.getUsername());
+			preparedStatement.setString(2,registerClass.getEmail());
+			preparedStatement.setString(3,registerClass.getPassword());
+			preparedStatement.setString(4,registerClass.getGender());
 			@SuppressWarnings("unused")
 			int rows = preparedStatement.executeUpdate();
 			ConnectionUtil.close(connection, preparedStatement, null);
@@ -148,7 +166,7 @@ public class MovieDAO {
 			RegisterClass registerclass=new RegisterClass();
 			while(rset.next())
 			{
-				registerclass.id=rset.getInt("id");
+				registerclass.setId(rset.getInt("id"));
 			}
 			
 			return registerclass;	

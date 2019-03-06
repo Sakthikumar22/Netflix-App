@@ -16,14 +16,20 @@ color:white;
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+.heading {
+	color: gray;
+	font-size: 30px;
+	font-weight: 100;
+	
+	
+}
 </style>
 </head>
 <body>
 <form method="post" action="SaveServlet">
 <table>
 <tbody>
-<tr><td>
-Movie Details</td></tr>
+<h1 class='heading'>Movie Details</h1>
  <tr><td>Id</td>
 <td><input type="number"name="id"required></td></tr>
 <tr><td>Name</td>

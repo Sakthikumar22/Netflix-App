@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Director {
 
-	public int id;
+	private int id;
 	public int getId() {
 		return id;
 	}
@@ -23,7 +23,7 @@ public class Director {
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		DateOfBirth = dateOfBirth;
 	}
-	public String name;
-	public LocalDate DateOfBirth;
+	private String name;
+	private LocalDate DateOfBirth;
 }
 
