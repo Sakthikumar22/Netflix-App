@@ -36,5 +36,11 @@ public class RegisterClass {
 	private String password;
 	private String gender;
 	private int id;
+	@Override
+	public String toString() {
+		return "RegisterClass [email=" + email + ", username=" + username
+				+ ", password=" + password + ", gender=" + gender + ", id="
+				+ id + "]";
+	}
 
 }

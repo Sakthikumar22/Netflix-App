@@ -8,7 +8,7 @@ public class Validation {
 	public static void sendSimpleMail() throws Exception {
 	     Email email = new SimpleEmail();
 	     email.setSmtpPort(587);
-	     email.setAuthenticator(new DefaultAuthenticator("chainsys1997",
+	     email.setAuthenticator(new DefaultAuthenticator("chainsys1997@gmail.com",
 	             "sama4sadu"));
 	     email.setDebug(false);
 	     email.setHostName("smtp.gmail.com");

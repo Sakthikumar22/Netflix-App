@@ -1,9 +1,8 @@
 package com.chainsys.servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
+import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,20 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.chainsys.amazon.MovieDAO;
-
-
+import com.chainsys.model.Movie;
 
 /**
- * Servlet implementation class UpdateServlet
+ * Servlet implementation class AddCastServlet
  */
-@WebServlet("/UpdateServlet")
-public class UpdateServlet extends HttpServlet {
+@WebServlet("/AddCastServlet")
+public class AddCastServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UpdateServlet() {
+    public AddCastServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,26 +38,35 @@ public class UpdateServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		int id = Integer.parseInt(request.getParameter("id"));
-		int price= Integer.parseInt(request.getParameter("price"));
-
+	
 		
+		Movie movie=new Movie();
+	
 		
-		try {
-			MovieDAO.updateMovie(id,price);
-			RequestDispatcher rd = request.getRequestDispatcher("Success.html");
-			rd.forward(request, response);
+		try
+		{
+			movie.setName(request.getParameter("moviename"));
+			movie=MovieDAO.selectMovie(movie.getName());
+			movie.setCastname(request.getParameter("castname"));
+			movie.setCastrole(request.getParameter("castrole"));
+			MovieDAO.addMovieCast(movie.getId(), movie.getCastname(), movie.getCastrole());
+		
 			
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		//	throw new UserException("Exception caught at"+ e.getMessage());
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+	catch(Exception e)
+		{
+		
+		}
+		
+		
+		
+		
+		
+		
+				
+			
+		
+		// TODO Auto-generated method stub
 	}
 
 }
-

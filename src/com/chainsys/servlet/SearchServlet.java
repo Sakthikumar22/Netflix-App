@@ -35,7 +35,7 @@ public class SearchServlet extends HttpServlet {
 		
 		
 		try {
-			ArrayList<Movie> movie=MovieDAO.selectMovie(name);
+			Movie movie=MovieDAO.selectMovie(name);
 			
 			
 			request.setAttribute("MOVIES", movie);

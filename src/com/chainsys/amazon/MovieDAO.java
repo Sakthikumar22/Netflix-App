@@ -22,16 +22,35 @@ public class MovieDAO {
 		public static void addMovie(int id , String name , int price,int director_id)
 				throws SQLException, ClassNotFoundException {
 			Connection connection = ConnectionUtil.getconnection();
-			String sql = "insert into movie(id,name,price,director_id) values(?,?,?,?) ";
+			String sql = "insert into movie(id,name,price) values(?,?,?) ";
 			PreparedStatement preparedStatement = connection .prepareStatement(sql);
 			preparedStatement.setInt(1, id);
 			preparedStatement.setString(2, name);
 			preparedStatement.setInt(3, price);
-			preparedStatement.setInt(4, director_id);
+			
 			int rows = preparedStatement.executeUpdate();
 			System.out.println("rows inserted:" + rows);
 			ConnectionUtil.close(connection, preparedStatement, null);
 		}
+		
+		public static void addMovieCast(int id , String name ,String role)
+				throws SQLException, ClassNotFoundException {
+			Connection connection = ConnectionUtil.getconnection();
+			String sql = "insert into moviecast(id,cast_name,cast_role) values(?,?,?) ";
+			PreparedStatement preparedStatement = connection .prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			preparedStatement.setString(2, name);
+			preparedStatement.setString(3, role);
+			
+			int rows = preparedStatement.executeUpdate();
+			System.out.println("rows inserted:" + rows);
+			ConnectionUtil.close(connection, preparedStatement, null);
+		}
+		
+		
+		
+		
+		
 		public static ArrayList<Director> authorselect() throws SQLException{
 			Connection connection = ConnectionUtil.getconnection();
 			String sql = "select * from director";
@@ -87,22 +106,48 @@ public class MovieDAO {
 			ConnectionUtil.close(connection, preparedStatement, null);
 		}
 
-		public  static ArrayList<Movie> selectMovie(String name) throws SQLException, ClassNotFoundException {
+		public  static Movie selectMovie(String name) throws SQLException, ClassNotFoundException {
 			Connection connection = ConnectionUtil.getconnection();
+	Movie movie=new Movie();
 			String sql = "select id, name,price from movie where name=? order by id asc";
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1,name);
 			ResultSet rset = preparedStatement.executeQuery();
 			ArrayList<Movie> arrayList=new ArrayList<Movie>();
-			Movie movie=new Movie();
-			while(rset.next()){
-			//	Movie movie=new Movie();
+			
+			if(rset.next()){
+				
 				movie.setId(rset.getInt("id"));
 			//	movie.name=rset.getString("name");
 				movie.setName(rset.getString("name"));
 				movie.setPrice(rset.getInt("price"));
 			//	movie.price=rset.getInt("price");
-				arrayList.add(movie);
+			
+				
+			}
+			
+			ConnectionUtil.close(connection, preparedStatement,rset);
+			return movie;
+		}
+		
+		public  static ArrayList<Movie> selectMovies() throws SQLException, ClassNotFoundException {
+			Movie movie2;
+			Connection connection = ConnectionUtil.getconnection();
+			String sql = "select id, name,price from movie order by id asc";
+			PreparedStatement preparedStatement = connection.prepareStatement(sql);
+		
+			ResultSet rset = preparedStatement.executeQuery();
+			ArrayList<Movie> arrayList=new ArrayList<Movie>();
+		
+			while(rset.next()){
+		movie2=new Movie();
+				movie2.setId(rset.getInt("id"));
+			//	movie.name=rset.getString("name");
+				movie2.setName(rset.getString("name"));
+				movie2.setPrice(rset.getInt("price"));
+			//	movie.price=rset.getInt("price");
+				arrayList.add(movie2);
+				System.out.println(arrayList.size());
 				
 			}
 			

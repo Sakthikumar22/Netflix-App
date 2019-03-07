@@ -10,42 +10,42 @@ public class ConnectionUtil {
 
 	public static Connection getconnection(){
 		Connection connection=null;
-		
-	
-       try {
-    		Class.forName("oracle.jdbc.driver.OracleDriver");
-            String url = "jdbc:oracle:thin:@localhost:1521:XE";
-		connection = DriverManager.getConnection(url, "hr", "hr");
-	} catch (SQLException | ClassNotFoundException e) {
-		// TODO Auto-generated catch block
-		
-		e.printStackTrace();
-		throw new RuntimeException("Unable to get the connection");
+
+
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			String url = "jdbc:oracle:thin:@localhost:1521:XE";
+			connection = DriverManager.getConnection(url, "hr", "hr");
+		} catch (SQLException | ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+
+			e.printStackTrace();
+			throw new RuntimeException("Unable to get the connection");
+		}
+		return connection;
 	}
-	return connection;
-	}
-		
- 
-		 /**
-		 * @param conn
-		 * @param pstmt
-		 * @param rs
-		 */
-		public static void close(Connection conn,PreparedStatement pstmt, ResultSet rs){
-			    try{
-			        if(rs != null){
-			            rs.close();
-			        }
-			            if(pstmt != null){
-			                pstmt.close();
-			            }
-			                if(conn != null){
-			                    conn.close();}
-			                }catch(SQLException e){
-			                	e.printStackTrace();
-			        
-			        }
-			    
-    }  
-		  
+
+
+	/**
+	 * @param conn
+	 * @param pstmt
+	 * @param rs
+	 */
+	public static void close(Connection conn,PreparedStatement pstmt, ResultSet rs){
+		try{
+			if(rs != null){
+				rs.close();
+			}
+			if(pstmt != null){
+				pstmt.close();
+			}
+			if(conn != null){
+				conn.close();}
+		}catch(SQLException e){
+			e.printStackTrace();
+
+		}
+
+	}  
+
 }

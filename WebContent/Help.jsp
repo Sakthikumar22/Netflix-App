@@ -24,7 +24,7 @@ color:white;
 <tr>
 <td>${username}</td>
 <td>${password}</td></tr>
-<table>
+</table>
 
 </body>
 </html>

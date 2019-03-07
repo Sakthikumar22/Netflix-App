@@ -29,19 +29,19 @@ color:white;
 <form method="post" action="SaveServlet">
 <table>
 <tbody>
-<h1 class='heading'>Movie Details</h1>
+<h3 class='heading'>Movie Details</h3>
  <tr><td>Id</td>
 <td><input type="number"name="id"required></td></tr>
 <tr><td>Name</td>
 <td><input type="text" name="name" required></td></tr>
 <tr><td>Price</td>
 <td><input type="number" name="price"required></td></tr>
-<tr><td>Director id</td>
-<td><select name="directorid">
+
+<!--  <td><select name="directorid">
 <c:forEach var= "director" items="${DIRECTOR}">
 <option value="${director.id}">${director.name}</option>
 </c:forEach>
-</select> </td></tr>
+</select> </td> --><
 
 <tr><td><button type="submit">add</button></td></tr>
 </tbody>

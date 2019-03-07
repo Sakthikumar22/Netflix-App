@@ -23,6 +23,20 @@ public class Movie {
 	private int id;
 	private String name;
 	private int price;
+	
+	private String castname,castrole;
+	public String getCastname() {
+		return castname;
+	}
+	public void setCastname(String castname) {
+		this.castname = castname;
+	}
+	public String getCastrole() {
+		return castrole;
+	}
+	public void setCastrole(String castrole) {
+		this.castrole = castrole;
+	}
 	private Director director;
 	public Director getDirector() {
 		return director;

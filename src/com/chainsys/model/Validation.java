@@ -13,7 +13,7 @@ public class Validation {
 	             "googlechrome"));
 	     email.setDebug(false);
 	     email.setHostName("smtp.gmail.com");
-	     email.setFrom("sakthimahesh.sakthi@gmail.com");
+	     email.setFrom("robinratheya@gmail.com");
 	     email.setSubject("Hi");
 	     email.setMsg("This is a test mail ... :-)");
 	     email.addTo("sakthimahesh.kumar@chainsys.com");

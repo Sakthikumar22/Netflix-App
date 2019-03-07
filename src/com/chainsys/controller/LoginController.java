@@ -22,14 +22,14 @@ import com.chainsys.model.RegisterClass;
 @WebServlet("/LoginController")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public LoginController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -46,12 +46,12 @@ public class LoginController extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		PrintWriter out = response.getWriter();
-		
+
 		if(email.equalsIgnoreCase("admin@gmail.com")&& password.equalsIgnoreCase("admin"))
 		{
 			out.println("success");
-		RequestDispatcher rd = request.getRequestDispatcher("Home.html");
-		rd.forward(request, response);
+			RequestDispatcher rd = request.getRequestDispatcher("Home.html");
+			rd.forward(request, response);
 		}
 		else
 		{
@@ -69,7 +69,7 @@ public class LoginController extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	
+
 		}
 	}
 
